@@ -22,7 +22,6 @@ static int num_replacements = MAX_REPLACEMENTS;
 struct node* allocate_n(int id)
 {
 	size_t size = sizeof(struct node) + (rand() % 4096);
-	// printf("%d\n",id);
 	struct node *n = (struct node*) mymalloc(size);
 	total_mem += size;
 	if (n == NULL)

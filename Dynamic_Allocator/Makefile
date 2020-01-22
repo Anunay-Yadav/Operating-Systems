@@ -1,10 +1,10 @@
 default: random
 
 libmemory.so: memory.c
-	gcc -fsanitize=address -Werror -shared -O3 -fPIC -o libmemory.so memory.c
+	gcc -Werror -shared -O3 -fPIC -o libmemory.so memory.c -lm
 
 random: randomalloc.c libmemory.so
-	gcc -fsanitize=address -O3 -L`pwd` -Wl,-rpath=`pwd` -o random randomalloc.c -lmemory
+	gcc -O3 -L`pwd` -Wl,-rpath=`pwd` -o random randomalloc.c -lmemory -lm
 
 run: random
 	/usr/bin/time -v ./random
