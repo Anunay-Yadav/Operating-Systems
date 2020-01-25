@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 		num_replacements = atoi(argv[1]);
 		assert(num_replacements > 0);
 	}
+
 	printf("num replacements:%d\n", num_replacements);
 
 	struct node **nodes = mymalloc(sizeof(struct node*) * num_nodes);
