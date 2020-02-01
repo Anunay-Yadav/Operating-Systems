@@ -6,7 +6,7 @@
 #undef malloc
 #undef free
 
-#define MAX_NODES 100
+#define MAX_NODES 100000
 #define MAX_REPLACEMENTS 1000000
 
 size_t total_mem = 0;
@@ -22,9 +22,7 @@ static int num_replacements = MAX_REPLACEMENTS;
 struct node* allocate_n(int id)
 {
 	size_t size = sizeof(struct node) + (rand() % 4096);
-	// printf("%d -> \n", (int) size);
 	struct node *n = (struct node*) mymalloc(size);
-	// printf("!!!!\n");
 	total_mem += size;
 	if (n == NULL)
 	{
@@ -40,11 +38,8 @@ void replace(struct node *nodes[])
 {
 	int i = rand() % num_nodes;
 	struct node *original = nodes[i];
-	// printf("12121wd1wd\n");
 	assert(original->id == i);
 	total_mem -= original->size;
-	// printf("%d\n", original -> size);
-	// printf("!@#!WDSCas\n");
 	myfree(original);
 	nodes[i] = allocate_n(i);
 }

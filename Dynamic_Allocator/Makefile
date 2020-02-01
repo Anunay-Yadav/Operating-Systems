@@ -15,7 +15,7 @@ test: random
 	@/usr/bin/time -v ./random 3000000 >> out 2>&1
 	@/usr/bin/time -v ./random 4000000 >> out 2>&1
 	@egrep "Elapsed|replace|Minor|Maximum" out
-	@rm out
+# 	@rm out
 
 clean:
 	rm -f libmemory.so random out
