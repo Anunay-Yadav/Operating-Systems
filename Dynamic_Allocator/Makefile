@@ -1,10 +1,10 @@
 default: random
 
 libmemory.so: memory.c
-	gcc -Werror -shared -O3 -fPIC -o libmemory.so memory.c -lm
+	gcc -Werror -shared -O3 -fPIC -o libmemory.so memory.c 
 
 random: randomalloc.c libmemory.so
-	gcc -O3 -L`pwd` -Wl,-rpath=`pwd` -o random randomalloc.c -lmemory -lm
+	gcc -O3 -L`pwd` -Wl,-rpath=`pwd` -o random randomalloc.c -lmemory
 
 run: random
 	/usr/bin/time -v ./random

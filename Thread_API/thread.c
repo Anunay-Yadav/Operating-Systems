@@ -30,10 +30,9 @@ static void push_back(struct thread *t)
 		t -> next = ready_list;
 		return;
 	}
-	while(temp -> next != ready_list)
-		temp = temp -> next;
-	temp -> next = t;
-	t -> prev = temp;
+	struct thread* last = temp -> prev;
+	last -> next = t;
+	t -> prev = last;
 	t -> next = ready_list;
 	ready_list -> prev = t;
 }

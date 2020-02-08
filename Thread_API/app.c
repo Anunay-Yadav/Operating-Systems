@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
 	else {
 		create_thread(bar1, NULL);
 	}
-	// printf("!!!!!\n");
 	wait_for_all();
 
 	printf("main thread exiting: counter:%lld\n", sum);
