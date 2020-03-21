@@ -297,6 +297,15 @@ int main()
 				wait(NULL);
 				wait(NULL);
 				wait(NULL);
+				for (int i = 0; i < 2; ++i)
+				{
+					for (int j = 0; j < 2; ++j)
+					{
+						close(car_cheat_pip[i + 1][j]);
+						close(car_rep_pip[i + 1][j]);
+						close(rep_car_pip[i +1 ][j]);
+					}
+				}
 			}
 		}
 	}
